@@ -33,6 +33,7 @@ Install the following libraries:
 `pip install rake-nltk`
 `pip install --upgrade category_encoders`
 `pip install shap`
+`pip install seaborn`
 `conda install -c conda-forge tqdm`
 
 
