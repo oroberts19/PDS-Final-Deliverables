@@ -31,8 +31,6 @@ Install the following libraries:
 `pip install tensorflow==2.3.1`  
 `conda install -c conda-forge tqdm`
 
-## Order  
-
 
 ## Contact
 For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (), or Simona Rahi ()
