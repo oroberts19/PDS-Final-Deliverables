@@ -28,11 +28,15 @@ Install the following libraries:
 `conda install -c anaconda urllib3`    
 `conda install -c anaconda pillow`    
 `conda install -c anaconda scikit-learn`    
-`pip install tensorflow==2.3.1`  
+`pip install tensorflow==2.3.1` 
+`pip install textblob` 
+`pip install rake-nltk`
+`pip install --upgrade category_encoders`
+`pip install shap`
 `conda install -c conda-forge tqdm`
 
 
 ## Contact
-For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (), or Simona Rahi ()
+For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (), or Simona Rahi (simona.rahi15@ncf.edu)
 
 
