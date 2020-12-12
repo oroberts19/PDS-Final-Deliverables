@@ -37,7 +37,7 @@ Install the following libraries:
 `pip install shap`    
 `pip install seaborn`  
 `pip install bs4`  
-`pip install lxml`
+`pip install lxml`  
 `conda install -c conda-forge tqdm`  
 
 
