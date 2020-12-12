@@ -40,6 +40,6 @@ Install the following libraries:
 
 
 ## Contact
-For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (), or Simona Rahi (simona.rahi15@ncf.edu)
+For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (jaida.abukhader15@ncf.edu), or Simona Rahi (simona.rahi15@ncf.edu)
 
 
