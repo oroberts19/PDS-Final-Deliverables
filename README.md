@@ -8,7 +8,8 @@
 ## General info
 This project aims to:
 * Understand what makes an advertisement clickable to predict future advertisement performance using a random forest and mixed input neural network
-* Explore features that predict the price point of a vehicle and use to predict future prices using a baseline model, random forest and linear regression
+* Explore features that predict the price point of a vehicle and use to predict future prices using a baseline model, random forest and linear regression  
+The code for the first objective is contained within engagement_rate_model.py and the code for the second objective is contained within pricing_model.py
 
 ## Technologies
 * Python 3.5–3.8 using Anaconda (downloadable here: https://www.anaconda.com/products/individual) or if using a Python interpreter, `pip install` all packages and skip conda environment
@@ -29,12 +30,12 @@ Install the following libraries:
 `conda install -c anaconda pillow`    
 `conda install -c anaconda scikit-learn`    
 `pip install tensorflow==2.3.1` 
-`pip install textblob` 
-`pip install rake-nltk`
-`pip install --upgrade category_encoders`
-`pip install shap`
-`pip install seaborn`
-`conda install -c conda-forge tqdm`
+`pip install textblob`   
+`pip install rake-nltk`  
+`pip install --upgrade category_encoders`  
+`pip install shap`  
+`pip install seaborn`  
+`conda install -c conda-forge tqdm`  
 
 
 ## Contact
