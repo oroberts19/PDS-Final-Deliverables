@@ -31,7 +31,8 @@ Install the following libraries:
 `conda install -c anaconda pillow`    
 `conda install -c anaconda scikit-learn`    
 `pip install tensorflow==2.3.1`  
-`pip install textblob`     
+`pip install textblob`  
+`pip install nltk`
 `pip install rake-nltk`    
 `pip install --upgrade category_encoders`    
 `pip install shap`    
