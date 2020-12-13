@@ -411,7 +411,7 @@ train_df['price'], test_df['price'], val_df['price'] = impute_price(train_df), i
 
 # This will be used in standardizing images for respective sets
 def numpy_image(row):
-    path = '/home/oroberts/DealersUtd/jpg_images/' + row[45]
+    path = '/home/oroberts/DealersUtd/jpg_images/' + row[45] #your working directory here
     img = np.array(Image.open(path).resize((200,200)))
     return(img)
 
@@ -567,7 +567,7 @@ plt.savefig('train_val.png')
 
 # Predicting on the test set
 # Change 'model1' to 'load_model' if want to predict using a saved model
-mean_absolute_error(test_y, model1.predict([test_x, img_test_x]))
+print(mean_absolute_error(test_y, model1.predict([test_x, img_test_x])))
 
 # View train validation over epochs
 img = mpimg.imread('train_val.png')
@@ -601,7 +601,7 @@ clf = tree.DecisionTreeRegressor()
 clf = clf.fit(train_x, train_y)
 
 # Predicting on test set
-mean_absolute_error(test_y, clf.predict(test_x))
+print(mean_absolute_error(test_y, clf.predict(test_x)))
 
 # Feature importance
 name_list = []
