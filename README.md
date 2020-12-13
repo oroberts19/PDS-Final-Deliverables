@@ -15,8 +15,8 @@ This project aims to:
 * Python 3.5–3.8 using Anaconda (downloadable here: https://www.anaconda.com/products/individual) or if using a Python interpreter, `pip install` all packages and skip conda environment
 * TensorFlow 2.3.1
 
-## Setup
-The code for the first objective is contained within engagement_rate_model.py and the code for the second objective is contained within pricing_model.py  
+## Setup  
+Please ssh username@10.10.11.64 and navigate to /home/oroberts/DealersUtd to use as working directory for proof of concept. All data and both .py files are there. Run `python3 pricing_model.py` or `python3 engagement_rate_model.py` for respective models.
 To run this project, please create a conda environment replacing myenv with your choice of name  
 `conda create --name myenv`
 
@@ -41,7 +41,6 @@ Install the following libraries:
 `pip install lxml`  
 `conda install -c conda-forge tqdm`  
 
-Please ssh username@10.10.11.64 and navigate to /home/oroberts/DealersUtd to use as working directory for proof of concept. All csvs files for both .py files are there. Run `python3 pricing_model.py` or `python3 engagement_rate_model.py` for respective models.
 
 ## Contact
 For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (jaida.abukhader15@ncf.edu), or Simona Rahi (simona.rahi15@ncf.edu)
