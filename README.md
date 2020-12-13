@@ -10,7 +10,6 @@ This project aims to:
 * Understand what makes an advertisement clickable to predict future advertisement performance using a random forest and mixed input neural network
 * Explore features that predict the price point of a vehicle and use to predict future prices using a baseline model, random forest and linear regression    
 
-
 ## Technologies
 * Python 3.5–3.8 using Anaconda (downloadable here: https://www.anaconda.com/products/individual) or if using a Python interpreter, `pip install` all packages and skip conda environment
 * TensorFlow 2.3.1
@@ -42,6 +41,18 @@ Install the following libraries:
 `pip install lxml`  
 `conda install -c conda-forge tqdm`  
 
+In total the following files will be used:
+data_09092020/vehicles_20200909  
+all_features_df.csv  
+filtered_df.csv  
+id_images.csv  
+jpg_images  
+new_pricing.csv  
+performance.csv  
+performance_description.csv  
+perform_features.csv  
+sample_pricing.csv  
+saved_model.pb  
 
 ## Contact
 For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (jaida.abukhader15@ncf.edu), or Simona Rahi (simona.rahi15@ncf.edu)
