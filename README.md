@@ -42,7 +42,7 @@ Install the following libraries:
 `conda install -c conda-forge tqdm`  
 
 In total the following files will be used:  
-data_09092020/vehicles_20200909  
+data_09092020/vehicles_20200909.csv    
 all_features_df.csv  
 filtered_df.csv  
 id_images.csv  
