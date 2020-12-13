@@ -41,7 +41,7 @@ Install the following libraries:
 `pip install lxml`  
 `conda install -c conda-forge tqdm`  
 
-In total the following files will be used:
+In total the following files will be used:  
 data_09092020/vehicles_20200909  
 all_features_df.csv  
 filtered_df.csv  
