@@ -41,6 +41,7 @@ Install the following libraries:
 `pip install lxml`  
 `conda install -c conda-forge tqdm`  
 
+Please ssh username@10.10.11.64 and navigate to /home/oroberts/DealersUtd to use as working directory for proof of concept. All csvs files for both .py files are there. Run `python3 pricing_model.py` or `python3 engagement_rate_model.py` for respective models.
 
 ## Contact
 For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (jaida.abukhader15@ncf.edu), or Simona Rahi (simona.rahi15@ncf.edu)
