@@ -14,6 +14,7 @@ from matplotlib.pyplot import imshow
 import matplotlib.image as mpimg
 from datetime import date 
 
+import tensorflow
 from tensorflow import keras
 from tensorflow.keras.layers import GaussianNoise, Conv2D, MaxPooling2D, Flatten, Dense, Input, Activation, BatchNormalization, Dropout, concatenate
 from tensorflow.keras.models import Sequential
@@ -415,9 +416,9 @@ def numpy_image(row):
     img = np.array(Image.open(path).resize((200,200)))
     return(img)
 
-np_train = train_df.progress_apply(numpy_image, axis = 1).tolist()
+#np_train = train_df.progress_apply(numpy_image, axis = 1).tolist()
 np_test = test_df.progress_apply(numpy_image, axis = 1).tolist()
-np_val = val_df.progress_apply(numpy_image, axis = 1).tolist()
+#np_val = val_df.progress_apply(numpy_image, axis = 1).tolist()
 
 # Full set of categorical levels for one hot encoding
 days = list(set(features_df.day_created_at))
@@ -428,19 +429,28 @@ year = list(set(features_df.year))
 """
 Mixed input neural network
 """
+
+"""
+Most will be commented out except test here for proof of concept. The trained model is saved and will be loaded for predictions, 
+but for tuning model in the future, this can be un-commented 
+"""
+
 # Standardize images (subtract mean divide by standard deviation)
 # Add noise to training images to reduce overfitting
+
+"""
 train_gen = ImageDataGenerator(featurewise_center=True, featurewise_std_normalization=True,
                               rotation_range=45, width_shift_range=.15, height_shift_range=.15)
 train_gen.fit(np_train)
 
 val_gen = ImageDataGenerator(featurewise_center=True, featurewise_std_normalization=True)
 val_gen.fit(np_val)
-
+"""
 test_gen = ImageDataGenerator(featurewise_center=True, featurewise_std_normalization=True)
 test_gen.fit(np_test)
 
 # Flow images from data frame
+"""
 train_generator = train_gen.flow_from_dataframe(train_df, directory = '/home/oroberts/DealersUtd/jpg_images', 
                                              x_col = 'filename', y_col = 'ratio', class_mode = 'raw', 
                                              shuffle = False, batch_size=len(train_df), target_size=(200,200))
@@ -448,6 +458,7 @@ train_generator = train_gen.flow_from_dataframe(train_df, directory = '/home/oro
 valid_generator = val_gen.flow_from_dataframe(val_df, directory = '/home/oroberts/DealersUtd/jpg_images', 
                                              x_col = 'filename', y_col = 'ratio', class_mode = 'raw', 
                                              shuffle = False, batch_size=len(val_df), target_size=(200,200))
+"""
 
 test_generator = test_gen.flow_from_dataframe(test_df, directory = '/home/oroberts/DealersUtd/jpg_images',
                                               x_col = 'filename', y_col = 'ratio', class_mode = 'raw',
@@ -461,6 +472,7 @@ img_val_y = []
 img_test_x = []
 img_test_y = []
 
+"""
 x, y = train_generator.next()
 img_train_x.append(x)
 img_train_y.append(y)
@@ -468,16 +480,19 @@ img_train_y.append(y)
 x, y = valid_generator.next()
 img_val_x.append(x)
 img_val_y.append(y)
+"""
 
 x, y = test_generator.next()
 img_test_x.append(x)
 img_test_y.append(y)
 
 # Convert to numpy for tensorflow compatibility
+"""
 img_train_x = np.array(img_train_x[0])
 img_train_y = np.array(img_train_y[0])
 img_val_x = np.array(img_val_x[0])
 img_val_y = np.array(img_val_y[0])
+"""
 img_test_x = np.array(img_test_x[0])
 img_test_y = np.array(img_test_y[0])
 
@@ -498,6 +513,7 @@ def process_structured_data(df, train, test, val):
 
 train_x, test_x, val_x, train_y, val_y, test_y = process_structured_data(features_df, train_df, test_df, val_df)
 
+"""
 # MLP structure
 def create_mlp(dim, regularizer=None):
     model = Sequential()
@@ -553,9 +569,11 @@ model1.fit([train_x, img_train_x], img_train_y, validation_data=([val_x, img_val
 # Save model
 model1.save('/home/oroberts/DealersUtd') # your working directory here
 
+"""
 # Load model
-load_model = keras.models.load_model('/home/oroberts/DealersUtd') # your working directory here
-    
+load_model = tensorflow.keras.models.load_model('/home/oroberts/DealersUtd') # your working directory here
+
+"""
 # Plot the training/validation history
 plt.plot(model1.history.history['loss'])
 plt.plot(model1.history.history['val_loss'])
@@ -564,15 +582,18 @@ plt.ylabel('Mean absolute error')
 plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 plt.savefig('train_val.png')
+"""
 
 # Predicting on the test set
-# Change 'model1' to 'load_model' if want to predict using a saved model
-print(mean_absolute_error(test_y, model1.predict([test_x, img_test_x])))
+# Change to 'model1' if want to predict after training using this code
+print('Mixed input NN MAE:', mean_absolute_error(test_y, load_model.predict([test_x, img_test_x])))
 
+"""
 # View train validation over epochs
 img = mpimg.imread('train_val.png')
 imgplot = plt.imshow(img)
 plt.show()
+"""
 
 """
 Random forest regression
@@ -601,13 +622,12 @@ clf = tree.DecisionTreeRegressor()
 clf = clf.fit(train_x, train_y)
 
 # Predicting on test set
-print(mean_absolute_error(test_y, clf.predict(test_x)))
+print('Random forest MAE:', mean_absolute_error(test_y, clf.predict(test_x)))
 
 # Feature importance
 name_list = []
 imp_list = []
 for name, importance in zip(train_df.columns, clf.feature_importances_):
-    print(name, "=", importance)
     name_list.append(name)
     imp_list.append(importance)
 
@@ -619,8 +639,10 @@ features = imp_df.columns
 importances = imp_df.importance
 indices = np.argsort(importances)
 
+"""
 plt.title('Feature Importances')
 plt.barh(imp_df.name, imp_df.importance, color='b', align='center')
 plt.yticks(range(len(imp_df.importance)))
 plt.xlabel('Relative Importance')
 plt.show()
+"""
