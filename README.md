@@ -15,7 +15,7 @@ This project aims to:
 * TensorFlow 2.3.1
 
 ## Setup  
-Please ssh username@10.10.11.64 and navigate to /home/oroberts/DealersUtd to use as working directory for proof of concept. All data and both .py files are there. Run `python3 pricing_model.py` or `python3 engagement_rate_model.py` for respective models.  
+Please ssh username@10.10.11.64 and navigate to /home/oroberts/DealersUtd to use as working directory for proof of concept. All data and both .py files are there. 
 
 Please create a conda environment replacing myenv with your choice of name  
 `conda create --name myenv`
@@ -53,6 +53,8 @@ performance_description.csv
 perform_features.csv  
 sample_pricing.csv  
 saved_model.pb  
+
+Run `python3 pricing_model.py` or `python3 engagement_rate_model.py` for respective models.  
 
 ## Contact
 For any questions, please contact Olivia Roberts (olivia.roberts19@ncf.edu), Jeeda AbuKhader (jaida.abukhader15@ncf.edu), or Simona Rahi (simona.rahi15@ncf.edu)
