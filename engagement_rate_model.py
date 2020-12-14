@@ -89,8 +89,7 @@ Read in jpg images from file folder on local machine.
 If images cannot be reshaped to [200, 200, 3], they are most likely not RGB and will be discarded
 Append vehicle id to a list and write it to csv for future filtering
 
-working_dir = '/home/oroberts/DealersUtd/jpg_images/*.jpg' # your working directory here
-jpg_imgs = glob.glob(working_dir)
+jpg_imgs = glob.glob('/home/oroberts/DealersUtd/jpg_images/*.jpg')  # your working directory here
 id_array = []
 for i in range(len(jpg_imgs)):
     try:
@@ -451,16 +450,16 @@ test_gen.fit(np_test)
 
 # Flow images from data frame
 """
-train_generator = train_gen.flow_from_dataframe(train_df, directory = '/home/oroberts/DealersUtd/jpg_images', 
+train_generator = train_gen.flow_from_dataframe(train_df, directory = '/home/oroberts/DealersUtd/jpg_images', # your working directory here
                                              x_col = 'filename', y_col = 'ratio', class_mode = 'raw', 
                                              shuffle = False, batch_size=len(train_df), target_size=(200,200))
 
-valid_generator = val_gen.flow_from_dataframe(val_df, directory = '/home/oroberts/DealersUtd/jpg_images', 
+valid_generator = val_gen.flow_from_dataframe(val_df, directory = '/home/oroberts/DealersUtd/jpg_images', # your working directory here
                                              x_col = 'filename', y_col = 'ratio', class_mode = 'raw', 
                                              shuffle = False, batch_size=len(val_df), target_size=(200,200))
 """
 
-test_generator = test_gen.flow_from_dataframe(test_df, directory = '/home/oroberts/DealersUtd/jpg_images',
+test_generator = test_gen.flow_from_dataframe(test_df, directory = '/home/oroberts/DealersUtd/jpg_images', # your working directory here
                                               x_col = 'filename', y_col = 'ratio', class_mode = 'raw',
                                               shuffle = False, batch_size=len(test_df), target_size=(200,200))
 
